@@ -1,9 +1,7 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {Dashboard} from '../screens/Dashboard';
-import {Medication} from '../screens/Medication';
-import {Calendar} from '../screens/Calendar';
+import {Calendar, Dashboard, Medication} from '../screens';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {StrConstants, Colors} from '../constants';
 
