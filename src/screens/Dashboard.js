@@ -1,6 +1,12 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {View, Text} from 'react-native';
+
+import {StrConstants} from '../constants';
 
 export const Dashboard = () => {
-  return <Text>Dashboard</Text>;
+  return (
+    <View>
+      <Text>{StrConstants.dashboard}</Text>
+    </View>
+  );
 };

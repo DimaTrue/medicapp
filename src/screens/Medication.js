@@ -1,11 +1,13 @@
 import React from 'react';
 import {Button} from 'react-native';
 
+import {StrConstants} from '../constants';
+
 export const Medication = ({navigation}) => {
   return (
     <Button
-      title="Medication"
-      onPress={() => navigation.navigate('MedicationDetails')}
+      title={StrConstants.medication}
+      onPress={() => navigation.navigate(StrConstants.medicationDetails)}
     />
   );
 };

@@ -1,27 +1,46 @@
 import * as React from 'react';
-import {Button} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
 import {Dashboard} from '../screens/Dashboard';
 import {Medication} from '../screens/Medication';
 import {Calendar} from '../screens/Calendar';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {StrConstants, Colors} from '../constants';
 
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+
+          if (route.name === StrConstants.dashboard) {
+            iconName = 'home';
+          }
+          if (route.name === StrConstants.medication) {
+            iconName = 'tablets';
+          }
+          if (route.name === StrConstants.calendar) {
+            iconName = 'calendar';
+          }
+
+          return <Icon name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: Colors.blue,
+        tabBarInactiveTintColor: Colors.gray,
         headerLeft: () => (
-          <Button onPress={() => console.log('menu pressed')} title="Menu" />
+          <Icon name="bars" size={16} color={Colors.gray} onPress={() => {}} />
         ),
         headerLeftContainerStyle: {
           paddingLeft: 10,
         },
         headerTitleAlign: 'center',
-      }}>
-      <Tab.Screen name="Dashboard" component={Dashboard} />
-      <Tab.Screen name="Medication" component={Medication} />
-      <Tab.Screen name="Calendar" component={Calendar} />
+      })}>
+      <Tab.Screen name={StrConstants.dashboard} component={Dashboard} />
+      <Tab.Screen name={StrConstants.medication} component={Medication} />
+      <Tab.Screen name={StrConstants.calendar} component={Calendar} />
     </Tab.Navigator>
   );
 };

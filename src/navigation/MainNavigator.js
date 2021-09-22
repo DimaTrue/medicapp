@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {MedicationDetails} from '../screens/MedicationDetails';
 import {TabNavigator} from './TabNavigator';
+import {StrConstants} from '../constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,11 +13,14 @@ export const MainNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerTitleAlign: 'center'}}>
         <Stack.Screen
-          name="TabNavigator"
+          name={StrConstants.tabNavigator}
           component={TabNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="MedicationDetails" component={MedicationDetails} />
+        <Stack.Screen
+          name={StrConstants.medicationDetails}
+          component={MedicationDetails}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
