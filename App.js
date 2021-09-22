@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text} from 'react-native';
 
-const App = () => {
-  return <Text>Hel</Text>;
-};
+import {MainNavigator} from './src/navigation/MainNavigator';
+
+const App = () => <MainNavigator />;
 
 export default App;
